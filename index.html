@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>万年历—张雪—360前端星计划</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">  
+	<link rel="stylesheet" href="style.css"/>
+	<script src="main.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="calendar">
+	    <table width="100%"  cellpadding="0" >
+        <thead>
+            <tr>
+                <th colspan="7">
+										<button class="left-comma" onclick="changeCld(-1,0)"><</button>
+                    <select id="SY" onchange="changeCld(0,0);">
+                        <script>
+                            for (i = 1900; i < 2050; i++) document.write('<option>' + i + '年');
+                        </script>
+                    </select>
+                    <button class="right-comma" onclick="changeCld(-1,0)">></button>
+                    <button id="m-dowm" class="left-comma" onclick="changeCld(0,-1)"><</button>
+                    <select id="SM" onchange="changeCld(0,0);">
+                        <script>
+                            for (i = 1; i < 13; i++) document.write('<option>' + i + '月');
+                        </script>
+                    </select>
+                    <button id="m-up" class="right-comma"onclick="changeCld(0,1)">></button>
+                              </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td width="54">
+                    日
+                </td>
+                <td width="54">
+                    一
+                </td>
+                <td width="54">
+                    二
+                </td>
+                <td width="54">
+                    三
+                </td>
+                <td width="54">
+                    四
+                </td>
+                <td width="54">
+                    五
+                </td>
+                <td width="54">
+                    六
+                </td>
+            </tr>
+            <script>
+                var gNum;
+                for (i = 0; i < 6; i++) {
+                    document.write('<tr align="center">');
+                    for (j = 0; j < 7; j++) {
+                        gNum = i * 7 + j;
+                        document.write('<td id="GD' + gNum + '"><font id="SD' + gNum + '" size=2 face="Arial Black"');
+                        if (j == 0) document.write('color="red"');
+                        if (j == 6) document.write('color="#000080"');
+                        document.write('></font><br/><font id="LD' + gNum + '" size=2 style="font-size:9pt"></font></td>');
+                    }
+                    document.write('</tr>');
+                }
+            </script>
+        </tbody>
+    	</table>
+	    <div id="show">
+	    	<h3 id="currentTime"></h3>
+	    	<h1 id="currentWeekDay"></h1>
+				<h3 id="currentLunarYear"></h3>
+	    </div>
+	    <div id="showAnimal">
+	    	<img id="animal" src="" alt="">
+	    </div>
+	    <div id="goback">
+	    	<a id="back" onclick="returnToday();" href="">返回今天</a>
+	    </div>
+	   	<div id="history">
+		   	<button id="his-button" onclick = "history();" >
+		    	<a id="his" href="" target="_blank">历史上的今天</a>
+	    	</button>
+	    </div>
+    </div>
+</body>
+</html>

@@ -15,5 +15,3 @@
 
 
 - [演示地址戳这里](http://cheungseol.github.io/js-calendar/ "js万年历演示页面")
-
-## 扩展功能 ##
